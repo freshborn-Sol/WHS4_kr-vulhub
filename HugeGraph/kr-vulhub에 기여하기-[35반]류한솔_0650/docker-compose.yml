@@ -1,0 +1,14 @@
+services:
+  hugegraph:
+    build:
+      context: .
+      args:
+        HUGEGRAPH_VERSION: "1.3.0"
+    image: cve-2024-43441-hugegraph:1.3.0-lab
+    container_name: cve-2024-43441-hugegraph
+    environment:
+      PASSWORD: "hugegraph-lab-password"
+      JAVA_OPTS: "--add-opens=java.base/jdk.internal.reflect=ALL-UNNAMED -XX:+UseContainerSupport -XX:MaxRAMPercentage=75.0"
+    ports:
+      - "127.0.0.1:8080:8080"
+    restart: "no"
